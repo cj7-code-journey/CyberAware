@@ -24,9 +24,6 @@
 - **Responsive Design**  
   Clean, accessible UI adjustable for desktop and mobile users.
 
-- **Reusable Components**  
-  Navbar and footer loaded dynamically on each page via JavaScript for DRY, maintainable code.
-
 ---
 
 ## 📚 Pages & Navigation
@@ -46,7 +43,7 @@
   HTML5, CSS3, Vanilla JavaScript
 
 - **Design & Prototype:**  
-  Figma (see `/wireframes` or screenshots)
+  Notebook, Notepad
 
 - **Hosting:**  
   [GitHub Pages](https://pages.github.com/)
@@ -64,14 +61,12 @@
 2. **Structure**
     ```
     /
-      home.html
+      index.html
       learning.html
       quiz.html
       resources.html
       blog.html
-      navbar.html
-      footer.html
-      [css/ or main.css]
+      [assests/css/ or main.css]
       [images/]
     ```
 
@@ -99,9 +94,9 @@
 
 ---
 
-## 📑 Credits
+## 📑 Credits(update soon..)
 
-- Tools, news, and content cited throughout Resources page to their original authors/owners (e.g., Troy Hunt, Google, EFF, CISA, SANS, etc.).
+- Tools, news, and content cited throughout Resources page to their original authors/owners
 - Photos: [Unsplash](https://unsplash.com/).
 
 ---
@@ -116,9 +111,6 @@ External resources remain property of their credited owners.
 
 ## 🌐 Live Demo
 
-> [Visit CyberAware on GitHub Pages](https://your-username.github.io/cyberaware/)  
-*Replace with your own live URL when published.*
+> [Visit CyberAware on GitHub Pages](https://cj7-code-journey.github.io/CyberAware/)  
 
 ---
-
-Feel free to fork, contribute, and help us make the web safer for everyone!
