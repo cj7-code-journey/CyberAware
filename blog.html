@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>CyberAware | Blog</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="/assets/CSS/main_styles.css">
+  <link rel="stylesheet" href="/assets/CSS/blog.css">
+
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo"><a href="index.html" class="nav-link">CyberAware</a></div>
+    <div class="nav-links">
+      <a href="learning.html" class="nav-link">Learning</a>
+      <a href="quiz.html" class="nav-link">Quiz</a>
+      <a href="blog.html" class="nav-link active">Blog</a>
+      <a href="resources.html" class="nav-link">Resources</a>
+    </div>
+  </nav>
+
+  <div class="blog-container">
+    <div class="title">CyberAware Blog: Tips & Tricks</div>
+    <div class="search-bar">
+      <input type="text" class="search-input" id="searchInput" placeholder="Search by keyword, title or tag...">
+    </div>
+    <div class="blog-list" id="blogList"></div>
+    <div class="no-results" id="noResults" style="display:none;">No blog posts matched your search.</div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="learning.html">Learning</a>
+      <a href="quiz.html">Quiz</a>
+      <a href="resources.html">Resources</a>
+      <a href="#about">About</a>
+    </div>
+    &copy; 2025 CyberAware. Made with 💝 in India | For your digital safety.
+  </footer>
+
+  <script>
+    // Blog data (add more if you like!)
+    const blogs = [
+      {
+        title: "How to Build Bulletproof Passwords",
+        meta: "August 2025 · Cyber Tips",
+        content: `Passwords are the first line of defense.<br>
+          <b>Tip:</b> Use a long phrase mixed with numbers and special characters. Avoid reusing old passwords.<br>
+          <b>Trick:</b> Try the “passphrase” method: join random words and symbols for easier recall. 
+          <br><b>Example:</b> Violet!42-Staircase&Finch`,
+        tags: ["password", "login", "protection", "tips"]
+      },
+      {
+        title: "Spotting Phishing: The Email Tricksters",
+        meta: "July 2025 · Scam Prevention",
+        content: `Phishing emails mimic trusted sources—watch out!<br>
+          <b>Tip:</b> Look for awkward language and <b>hover over links</b> to check destinations.<br>
+          <b>Trick:</b> Never click attachments or links from unknown senders. <br>
+          If suspicious, contact the company directly via their official website.`,
+        tags: ["phishing", "email", "tips", "security"]
+      },
+      {
+        title: "Staying Safe on Public Wi-Fi",
+        meta: "July 2025 · Everyday Security",
+        content: `Public Wi-Fi is convenient but risky. Hackers can easily snoop your traffic.<br>
+          <b>Tip:</b> Avoid entering passwords or personal info on open networks.<br>
+          <b>Trick:</b> Use a VPN app and turn off sharing settings when on public Wi-Fi.
+          <br>Log out of accounts and “forget” the Wi-Fi network when done.`,
+        tags: ["wifi", "public", "vpn", "network", "tips"]
+      },
+      {
+        title: "The Power of Two-Factor Authentication (2FA)",
+        meta: "June 2025 · Account Safety",
+        content: `2FA keeps hackers out even if they guess your password.<br>
+          <b>Tip:</b> Turn on 2FA for all important accounts (email, banking, work).<br>
+          <b>Trick:</b> Use an authenticator app instead of SMS for stronger protection.<br>
+          If you see 2FA offered, <b>always enable it</b>!`,
+        tags: ["2fa", "authentication", "login", "security", "tips"]
+      },
+      {
+        title: "Smart Device Security: Don’t Let Hackers In!",
+        meta: "May 2025 · Phone & PC Safety",
+        content: `Your gadgets need guarding too.<br>
+          <b>Tip:</b> Update software regularly and use device locks (PIN, FaceID).<br>
+          <b>Trick:</b> Delete unused apps, review permissions, and never install cracked software.<br>
+          <b>Bonus:</b> If you lose a device, change your major passwords right away.`,
+        tags: ["mobile", "device", "update", "tips", "security"]
+      }
+    ];
+
+    // DOM elements
+    const blogList = document.getElementById('blogList');
+    const searchInput = document.getElementById('searchInput');
+    const noResults = document.getElementById('noResults');
+
+    // Render blogs
+    function renderBlogs(blogArray) {
+      blogList.innerHTML = '';
+      if (blogArray.length === 0) {
+        noResults.style.display = '';
+        return;
+      } else {
+        noResults.style.display = 'none';
+      }
+      blogArray.forEach(blog => {
+        const card = document.createElement('div');
+        card.className = 'blog-card';
+        card.innerHTML = `
+          <div class="blog-title">${blog.title}</div>
+          <div class="blog-meta">${blog.meta}</div>
+          <div class="blog-content">${blog.content}</div>
+          <div class="blog-tags">
+            ${blog.tags.map(tag => `<span class="blog-tag">${tag}</span>`).join(' ')}
+          </div>
+        `;
+        blogList.appendChild(card);
+      });
+    }
+
+    // Filter / search blogs
+    function filterBlogs() {
+      const query = searchInput.value.trim().toLowerCase();
+      const filtered = blogs.filter(blog => {
+        const searchable = [blog.title, blog.meta, blog.content, ...(blog.tags)].join(" ").toLowerCase();
+        return searchable.includes(query);
+      });
+      renderBlogs(filtered);
+    }
+
+    // Initial render
+    renderBlogs(blogs);
+    searchInput.addEventListener('input', filterBlogs);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CyberAware | Learning Hub</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="/assets/CSS/main_styles.css">
+  <link rel="stylesheet" href="/assets/CSS/learning.css">
+</head>
+<body>
+<!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo"><a href="index.html" class="nav-link">CyberAware</a></div>
+    <div class="nav-links">
+      <a href="learning.html" class="nav-link active">Learning</a>
+      <a href="quiz.html" class="nav-link">Quiz</a>
+      <a href="blog.html" class="nav-link">Blogs</a>
+      <a href="resources.html" class="nav-link">Resources</a>
+
+    </div>
+  </nav>  
+
+  <div class="container">
+    <h2>Learning Hub</h2>
+    <div class="category-label">Select a Category:</div>
+    <div class="categories" id="categoryBtns"></div>
+    <div class="topic-label" id="topicLabel"></div>
+    <div class="topics" id="topicBtns"></div>
+    <div class="content" id="contentArea">
+      <i>Select a category and a topic to start learning!</i>
+    </div>
+  </div>
+    <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="learning.html">Learning</a>
+      <a href="quiz.html">Quiz</a>
+      <a href="resources.html">Resources</a>
+      <a href="#about">About</a>
+    </div>
+    &copy; 2025 CyberAware.Made with 💝 in India | For your digital safety.
+  </footer>
+
+  <script>
+    // Refined topics and examples, including cause/effect
+    const data = {
+      Basic: {
+        "What is Cyber Awareness?":
+          "Cyber Awareness means understanding the dangers of using computers and the internet, and knowing how to stay safe." +
+          "<div class='cause-effect'>Cause: Ignorance of risks (e.g., scams, viruses) can lead to data loss or theft.</div>" +
+          "<div class='example'>Example: Knowing not to click on suspicious links helps avoid identity theft.</div>",
+
+        "Strong Passwords":
+          "A strong password is hard to guess and protects your accounts from hackers. Use a combination of uppercase, lowercase, numbers, and symbols, with at least 12 characters." +
+          "<div class='example'>Example: 'Tina&Tom_B1ke$2023' is a strong password.</div>" +
+          "<div class='cause-effect'>Effect: Strong passwords prevent unauthorized access to your data.</div>",
+
+        "Recognizing Phishing":
+          "Phishing occurs when someone pretends to be a trusted source (like your bank) to trick you into sharing personal info. Be careful with unsolicited emails or calls that ask for information." +
+          "<div class='example'>Example: An urgent email claiming your account will be frozen unless you verify your details by clicking a link.</div>" +
+          "<div class='cause-effect'>Effect: Clicking phishing links can expose your passwords and financial info.</div>",
+
+        "Safe Browsing":
+          "Browse only on secure websites (look for 'https://' and a padlock). Avoid sites that look suspicious or ask for unnecessary personal info." +
+          "<div class='example'>Example: Shop only from websites with 'https://' in the address, especially when entering credit card details.</div>" +
+          "<div class='cause-effect'>Cause: Unsafe browsing increases risk of malware infections.</div>",
+
+        "Device Locking":
+          "Always lock your phone and computer when not in use. Set a passcode, PIN, or biometric lock." +
+          "<div class='example'>Example: Use fingerprint lock on your smartphone.</div>" +
+          "<div class='cause-effect'>Effect: Prevents others from accessing your personal data if your device is lost.</div>",
+      },
+
+      Intermediate: {
+        "Two-Factor Authentication (2FA)":
+          "2FA adds an extra layer of security by requiring a second step, like a code sent to your phone, after your password." +
+          "<div class='example'>Example: After entering your password, you get a text message with a code you must also enter.</div>" +
+          "<div class='cause-effect'>Effect: Even if a hacker gets your password, your account is protected by 2FA.</div>",
+
+        "Public Wi-Fi Risks":
+          "Public Wi-Fi is convenient but often unsafe. Hackers can intercept data sent on open networks." +
+          "<div class='example'>Example: Logging into your bank account in a coffee shop using free Wi-Fi could let hackers steal your credentials.</div>" +
+          "<div class='cause-effect'>Cause: Sensitive info sent over public Wi-Fi can be stolen.</div>",
+
+        "Social Engineering":
+          "Social engineering means tricking people into giving up confidential info. Attackers might pose as coworkers or IT staff." +
+          "<div class='example'>Example: Someone calling and pretending to be your IT support to get your login details.</div>" +
+          "<div class='cause-effect'>Effect: Social engineering can lead to major data leaks.</div>",
+
+        "Protecting Personal Devices":
+          "Keep software updated and use security apps to guard against threats. Avoid installing apps from unknown sources." +
+          "<div class='example'>Example: Regularly updating your phone and using antivirus software.</div>" +
+          "<div class='cause-effect'>Effect: Updates patch security flaws and help block malware.</div>",
+
+        "Secure File Sharing":
+          "Only share files using trusted, encrypted services. Never send work files using unsecured methods (like open email attachments)." +
+          "<div class='example'>Example: Use OneDrive or Google Drive (with sharing controls) instead of unprotected email for confidential files.</div>" +
+          "<div class='cause-effect'>Effect: Secure file sharing helps prevent data leaks.</div>"
+      },
+
+      Advanced: {
+        "Spotting Malware":
+          "Malware is software designed to harm. Signs include slow device performance, unexpected pop-ups, or new, unknown programs." +
+          "<div class='example'>Example: Suddenly seeing unwanted ads, even when no browser is open, might indicate adware infection.</div>" +
+          "<div class='cause-effect'>Effect: Malware can steal your files, passwords, or take control of your device.</div>",
+
+        "Data Encryption":
+          "Encryption turns data into unreadable code without a special key. This protects files and communications from unauthorized access." +
+          "<div class='example'>Example: WhatsApp encrypts your messages so only you and the recipient can read them.</div>" +
+          "<div class='cause-effect'>Cause: Without encryption, intercepted data is easy to read and misuse.</div>",
+
+        "Incident Reporting":
+          "If you notice something suspicious (like repeated login failures), report it to IT/security immediately so they can investigate and act fast." +
+          "<div class='example'>Example: Reporting a strange email asking you to download a file helps prevent broader cyber attacks.</div>" +
+          "<div class='cause-effect'>Effect: Quick reporting can stop or reduce the impact of a cyber threat.</div>",
+
+        "Privacy Settings & Data Sharing":
+          "Adjust privacy settings on apps and social media to control who can see your data. Share only the minimum info necessary." +
+          "<div class='example'>Example: Limiting your Facebook posts so only friends (not the public) can see them.</div>" +
+          "<div class='cause-effect'>Cause: Oversharing can give criminals info for scams or identity theft.</div>",
+
+        "Recognizing Ransomware":
+          "Ransomware locks your files and demands payment to restore access. It often spreads via email links or infected downloads." +
+          "<div class='example'>Example: Your screen displays a message saying all your documents are encrypted and you must pay to unlock them.</div>" +
+          "<div class='cause-effect'>Effect: Paying rarely guarantees file recovery; prevention is best—avoid suspicious downloads and keep backups.</div>",
+      }
+    };
+
+    // Setup buttons and interaction logic
+    const categoryBtns = document.getElementById('categoryBtns');
+    const topicBtns = document.getElementById('topicBtns');
+    const contentArea = document.getElementById('contentArea');
+    const topicLabel = document.getElementById('topicLabel');
+
+    let currentCategory = null;
+    let currentTopic = null;
+
+    function renderCategories() {
+      categoryBtns.innerHTML = "";
+      Object.keys(data).forEach(cat => {
+        const btn = document.createElement('button');
+        btn.textContent = cat;
+        btn.onclick = () => selectCategory(cat, btn);
+        categoryBtns.appendChild(btn);
+      });
+    }
+
+    function selectCategory(cat, btnElem) {
+      currentCategory = cat;
+      currentTopic = null;
+      Array.from(categoryBtns.children).forEach(b => b.classList.remove('selected'));
+      btnElem.classList.add('selected');
+      renderTopics(cat);
+      topicLabel.textContent = "Select a Topic:";
+      contentArea.innerHTML = "<i>Select a topic to learn...</i>";
+    }
+
+    function renderTopics(category) {
+      topicBtns.innerHTML = "";
+      Object.keys(data[category]).forEach(topic => {
+        const btn = document.createElement('button');
+        btn.textContent = topic;
+        btn.onclick = () => selectTopic(topic, btn);
+        topicBtns.appendChild(btn);
+      });
+    }
+
+    function selectTopic(topic, btnElem) {
+      currentTopic = topic;
+      Array.from(topicBtns.children).forEach(b => b.classList.remove('selected'));
+      btnElem.classList.add('selected');
+      contentArea.innerHTML = data[currentCategory][currentTopic];
+    }
+
+    renderCategories();
+  </script>
+
+</body>
+</html>

@@ -1,11 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CyberAware</title>
+  <meta charset="UTF-8">
+  <title>CyberAware | Home</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="/assets/CSS/main_styles.css">
+  <link rel="stylesheet" href="/assets/CSS/index.css">
 </head>
 <body>
-    
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo"><a href="index.html" class="nav-link active">CyberAware</a></div>
+    <div class="nav-links">
+      <a href="learning.html" class="nav-link">Learning</a>
+      <a href="quiz.html" class="nav-link">Quiz</a>
+      <a href="blog.html" class="nav-link">Blogs</a>
+      <a href="resources.html" class="nav-link">Resources</a>
+    </div>
+  </nav>
+
+  <!-- Slider (3 images, auto) -->
+  <div class="slider" id="slider">
+    <img src="/assets/img/kenny-eliason-mgYAR7BzBk4-unsplash.jpg" alt="Secure your passwords" class="slider-img active">
+    <img src="/assets/img/flyd-mT7lXZPjk7U-unsplash.jpg" alt="Recognize threats" class="slider-img">
+    <img src="/assets/img/privecstasy-CXlqHmQy3MY-unsplash.jpg" alt="Stay cyber aware" class="slider-img">
+
+    <div class="slider-dots" id="slider-dots"></div>
+   
+  </div>
+  <div class="slider-caption"> <a href="https://unsplash.com/" target="_blank">Images by Unsplash</a></div>
+  
+
+  <!-- About Section -->
+  <section class="about-section">
+    <h2>Welcome to CyberAware</h2>
+    <p>
+      <b>CyberAware</b> is your trusted learning hub for online safety skills.<br>
+      Our mission is to empower everyone—from beginners to experts—to stay safe and smart in the digital world.<br>
+      Whether you want to spot scams, build better passwords, or discover the latest in cyber hygiene, you’re in the right place!<br>
+      Enjoy interactive quizzes, practical learning modules, and up-to-date resources, all designed with clarity, simplicity, and real-life scenarios in mind.
+    </p>
+  </section>
+
+  <!-- Explore (Services) Section -->
+  <section class="explore-section">
+    <div class="explore-title">Explore CyberAware</div>
+    <div class="explore-list">
+
+      <div class="explore-card">
+        <div class="explore-card-title">Learning Hub</div>
+        <div class="explore-card-desc">
+          Choose your level (Basic, Intermediate, Advanced) and dive into key cyber awareness topics, practical guides, examples, and cause-effect insights.
+        </div>
+        <a class="explore-btn" href="learning.html">Go to Learning</a>
+      </div>
+
+      <div class="explore-card">
+        <div class="explore-card-title">Knowledge Quiz</div>
+        <div class="explore-card-desc">
+          Test your cyber skills with interactive, real-world scenario questions. Get instant feedback and boost your digital safety knowledge!
+        </div>
+        <a class="explore-btn" href="quiz.html">Take the Quiz</a>
+      </div>
+
+      <div class="explore-card">
+        <div class="explore-card-title">Resource Directory</div>
+        <div class="explore-card-desc">
+          Access trusted websites, useful tools (like password checkers), recommended video lessons, news on the latest threats, and more.
+        </div>
+        <a class="explore-btn" href="resources.html">View Resources</a>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="learning.html">Learning</a>
+      <a href="quiz.html">Quiz</a>
+      <a href="resources.html">Resources</a>
+      <a href="#about">About</a>
+    </div>
+    &copy; 2025 CyberAware. Made with 💝 in India | For your digital safety.
+  </footer>
+  
+  <script>
+    // Auto Slider Logic
+    const imgs = document.querySelectorAll('.slider-img');
+    const dotsContainer = document.getElementById('slider-dots');
+    let current = 0, max = imgs.length;
+    // Build dots
+    for(let i=0; i<max; i++) {
+      const dot = document.createElement("div");
+      dot.className = "slider-dot" + (i === 0 ? " active" : "");
+      dot.onclick = () => { showSlide(i); resetInterval(); };
+      dotsContainer.appendChild(dot);
+    }
+    const dots = dotsContainer.querySelectorAll('.slider-dot');
+    // Show slide n
+    function showSlide(n) {
+      imgs[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = n;
+      imgs[current].classList.add('active');
+      dots[current].classList.add('active');
+    }
+    // Auto-advance
+    let interval = setInterval(nextSlide, 4300);
+    function nextSlide() {
+      showSlide((current+1)%max);
+    }
+    function resetInterval() {
+      clearInterval(interval);
+      interval = setInterval(nextSlide, 4300);
+    }
+    // Support swipe for mobile
+    let startX = 0;
+    document.getElementById('slider').addEventListener('touchstart', (e)=> {
+      startX = e.touches[0].clientX;
+    });
+    document.getElementById('slider').addEventListener('touchend', (e)=> {
+      let dx = e.changedTouches[0].clientX - startX;
+      if (dx > 44) { showSlide((current-1+max)%max); resetInterval(); }
+      else if (dx < -44) { showSlide((current+1)%max); resetInterval(); }
+    });
+  </script>
 </body>
 </html>

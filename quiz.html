@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CyberAware | Knowledge Check</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+   <link rel="stylesheet" href="/assets/CSS/main_styles.css">
+  <link rel="stylesheet" href="/assets/CSS/quiz.css">
+  
+</head>
+<body>
+<!-- Navbar -->
+  <nav class="navbar">
+   <div class="logo"><a href="index.html" class="nav-link">CyberAware</a></div>
+    <div class="nav-links">
+      <a href="learning.html" class="nav-link">Learning</a>
+      <a href="quiz.html" class="nav-link active">Quiz</a>
+      <a href="blog.html" class="nav-link">Blogs</a>
+      <a href="resources.html" class="nav-link">Resources</a>
+
+    </div>
+  </nav>
+
+
+  <div class="container">
+    <h2>Check Your Knowledge</h2>
+    <form id="quizForm">
+      <!-- Question 1 -->
+      <div class="question">
+        <div>1. You receive an urgent email from your "bank" asking you to click a link and verify your account information. What should you do?</div>
+        <div class="options">
+          <input type="radio" id="q1a" name="q1" value="A">
+          <label for="q1a">Click the link and enter your details immediately.</label><br>
+          <input type="radio" id="q1b" name="q1" value="B">
+          <label for="q1b">Delete the email without reading.</label><br>
+          <input type="radio" id="q1c" name="q1" value="C">
+          <label for="q1c">Contact your bank using their official website or phone number to verify the email.</label><br>
+          <input type="radio" id="q1d" name="q1" value="D">
+          <label for="q1d">Forward the email to colleagues for advice.</label>
+        </div>
+      </div>
+      <!-- Question 2 -->
+      <div class="question">
+        <div>2. Which password is the safest to use for your online accounts?</div>
+        <div class="options">
+          <input type="radio" id="q2a" name="q2" value="A">
+          <label for="q2a">123456</label><br>
+          <input type="radio" id="q2b" name="q2" value="B">
+          <label for="q2b">Password1!</label><br>
+          <input type="radio" id="q2c" name="q2" value="C">
+          <label for="q2c">P@55w0rd</label><br>
+          <input type="radio" id="q2d" name="q2" value="D">
+          <label for="q2d">fD@9Rm!8qzT$</label>
+        </div>
+      </div>
+      <!-- Question 3 -->
+      <div class="question">
+        <div>3. You see a USB drive lying in the office parking lot. What should you do?</div>
+        <div class="options">
+          <input type="radio" id="q3a" name="q3" value="A">
+          <label for="q3a">Plug it into your work computer to identify the owner.</label><br>
+          <input type="radio" id="q3b" name="q3" value="B">
+          <label for="q3b">Take it to your IT/security department.</label><br>
+          <input type="radio" id="q3c" name="q3" value="C">
+          <label for="q3c">Plug it into your home computer first.</label><br>
+          <input type="radio" id="q3d" name="q3" value="D">
+          <label for="q3d">Leave it where it is.</label>
+        </div>
+      </div>
+      <!-- Question 4 -->
+      <div class="question">
+        <div>4. When is it OK to share your work login credentials with someone else?</div>
+        <div class="options">
+          <input type="radio" id="q4a" name="q4" value="A">
+          <label for="q4a">If they forgot theirs and need quick access.</label><br>
+          <input type="radio" id="q4b" name="q4" value="B">
+          <label for="q4b">If they are your manager.</label><br>
+          <input type="radio" id="q4c" name="q4" value="C">
+          <label for="q4c">Never share your credentials.</label><br>
+          <input type="radio" id="q4d" name="q4" value="D">
+          <label for="q4d">If instructed by IT over email.</label>
+        </div>
+      </div>
+      <!-- Question 5 -->
+      <div class="question" style="border-bottom:none;">
+        <div>5. Which of the following is a sign that a website may NOT be secure?</div>
+        <div class="options">
+          <input type="radio" id="q5a" name="q5" value="A">
+          <label for="q5a">The URL starts with "https://".</label><br>
+          <input type="radio" id="q5b" name="q5" value="B">
+          <label for="q5b">There is a padlock symbol in the browser’s address bar.</label><br>
+          <input type="radio" id="q5c" name="q5" value="C">
+          <label for="q5c">The site asks for personal info but the URL starts with "http://" (no 's').</label><br>
+          <input type="radio" id="q5d" name="q5" value="D">
+          <label for="q5d">The site uses two-factor authentication.</label>
+        </div>
+      </div>
+      <button type="button" onclick="checkQuiz()">Submit</button>
+    </form>
+    <div id="result" class="result" style="display:none;"></div>
+  </div>
+
+    <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="learning.html">Learning</a>
+      <a href="quiz.html">Quiz</a>
+      <a href="resources.html">Resources</a>
+      <a href="#about">About</a>
+    </div>
+    &copy; 2025 CyberAware. Made with 💝 in India | For your digital safety.
+  </footer>
+
+  <script>
+    const answers = ["C", "D", "B", "C", "C"];
+    const explanations = [
+      "Never click on links in unexpected emails asking for sensitive info. Contact your bank directly by going to their official website or calling their verified number.",
+      "The strongest passwords are long, random, and use a mix of letters, numbers, and symbols. Avoid dictionary words or common substitutions.",
+      "Lost USBs can contain malware. Always hand them to your IT/security team for safe analysis.",
+      "Credentials should never be shared, regardless of who asks. This helps protect both you and your organization from security incidents.",
+      "Never enter info on sites that do not have \"https://\" and a padlock symbol. A simple \"http://\" means information is not transmitted securely."
+    ];
+    function checkQuiz() {
+      let score = 0;
+      let feedback = "";
+      for(let i=1; i<=5; i++) {
+        const userAnswer = document.querySelector('input[name="q'+i+'"]:checked');
+        if(userAnswer) {
+          if(userAnswer.value === answers[i-1]) {
+            score++;
+            feedback += `<div class="correct"><b>Q${i} Correct!</b> ${explanations[i-1]}</div>`;
+          } else {
+            feedback += `<div class="wrong"><b>Q${i} Incorrect.</b> Correct answer: <b>${answers[i-1]}</b>. ${explanations[i-1]}</div>`;
+          }
+        } else {
+          feedback += `<div class="wrong"><b>Q${i} Not Answered.</b> Correct answer: <b>${answers[i-1]}</b>. ${explanations[i-1]}</div>`;
+        }
+      }
+      document.getElementById('result').style.display = 'block';
+      document.getElementById('result').innerHTML = `You scored <b>${score}/5</b>.<br><br>${feedback}`;
+      window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+    }
+  </script>
+</body>
+</html>

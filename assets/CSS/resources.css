@@ -1,0 +1,99 @@
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f2f7fa;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #fff;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.09);
+      border-radius: 13px;
+      padding: 40px 48px 32px 48px;
+    }
+    h2 {
+      color: #125887;
+      margin-bottom: 14px;
+    }
+    .tabs {
+      display: flex;
+      gap: 18px;
+      border-bottom: 3px solid #e5e8ec;
+      margin-bottom: 24px;
+    }
+    .tab-btn {
+      padding: 10px 28px;
+      border: none;
+      background: transparent;
+      color: #125887;
+      cursor: pointer;
+      font-size: 1.11rem;
+      font-weight: 500;
+      transition: background 0.2s, color 0.2s;
+      border-bottom: 3px solid transparent;
+      outline: none;
+    }
+    .tab-btn.selected {
+      background: #e4f4fa;
+      color: #268aec;
+      border-bottom: 3px solid #268aec;
+    }
+    .content-section {
+      display: none;
+      animation: fadein 0.3s;
+    }
+    .content-section.active {
+      display: block;
+    }
+    @keyframes fadein {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    .resource-list {
+      list-style: none;
+      padding: 0;
+    }
+    .resource-item {
+      padding: 15px 0;
+      border-bottom: 1px solid #e3eaf0;
+      display: flex;
+      flex-direction: column;
+    }
+    .resource-link {
+      color: #125887;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1.07rem;
+      margin-bottom: 2px;
+      transition: color 0.17s;
+    }
+    .resource-link:hover {
+      color: #0c354e;
+      text-decoration: underline;
+    }
+    .resource-desc {
+      color: #4b535d;
+      font-size: 0.99rem;
+      margin-bottom: 3px;
+    }
+    .credit {
+      font-size: 0.95rem;
+      color: #589cbb;
+      margin-top: 2px;
+    }
+    .section-credit {
+      font-size: 1rem;
+      margin-top: 8px;
+      color: #589cbb;
+    }
+    @media (max-width: 700px) {
+      .container { padding: 10px 2vw; }
+      .tabs { flex-direction: column; gap: 6px; }
+    }
+    @media (max-width: 480px) {
+      h2 { font-size: 1.21rem; }
+      .container { padding: 2vw 2vw; }
+      .tab-btn { padding: 8px 12px; font-size: 0.98rem; }
+    }
