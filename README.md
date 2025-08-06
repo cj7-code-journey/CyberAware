@@ -1,6 +1,6 @@
 # CyberAware – Cyber Awareness & Digital Safety Web Portal
 
-**CyberAware** is a modern, user-friendly web platform designed to promote digital safety and cyber literacy for all users. It integrates interactive learning modules, real-world quizzes, curated resources, and practical blog posts—empowering everyone to stay safe online.
+**CyberAware** is a user-friendly web platform designed to promote digital safety and cyber literacy for all users. It integrates interactive learning modules, real-world quizzes, curated resources, and practical blog posts—empowering everyone to stay safe online.
 
 ---
 
@@ -28,19 +28,18 @@
 
 ## 📚 Pages & Navigation
 
-- `home.html`  – Platform overview, slider, about, features, footer
+- `index.html`  –Navbar, Platform overview, slider, about, features, footer
 - `learning.html`  – Self-guided topics by level, examples, cause/effect, clear structure
 - `quiz.html`  – Scenario-based cyber awareness quiz
 - `resources.html`  – External tools, video learning, news, and more
 - `blog.html`  – Filter/search tips and awareness blog posts
-- Partial HTML: `navbar.html`, `footer.html` (included via JS for consistency)
 
 ---
 
 ## 🛠️ Tech & Tools
 
 - **Frontend:**  
-  HTML5, CSS3, Vanilla JavaScript
+  HTML5, CSS3, JavaScript
 
 - **Design & Prototype:**  
   Notebook, Notepad
@@ -48,17 +47,16 @@
 - **Hosting:**  
   [GitHub Pages](https://pages.github.com/)
 
+  ### 🌐 Live Demo
+  
+  > [Visit CyberAware on GitHub Pages](https://cj7-code-journey.github.io/CyberAware/)  
+  
+  ---
+
 ---
 
-## 💡 Getting Started
 
-1. **Clone or Download**
-    ```
-    git clone https://github.com/your-username/cyberaware.git
-    ```
-    Or [download as ZIP](https://github.com/your-username/cyberaware/archive/refs/heads/main.zip).
-
-2. **Structure**
+## **Structure**
     ```
     /
       index.html
@@ -70,14 +68,7 @@
       [images/]
     ```
 
-3. **Local Development**
-    - Open `home.html` (or any major page) in Live Server (VSCode extension) or run a simple local server (for JS partial injection).
-    - Example:  
-        ```
-        npx serve .
-        ```
-
-4. **Deployment**
+## **Deployment**
     - Push your repository to GitHub.
     - Go to repository Settings → Pages → Set branch to `main` and `/ (root)`.
     - Your website will be live at `https://your-username.github.io/cyberaware/`
@@ -86,11 +77,7 @@
 
 ## 🤝 Team
 
-- Divyesh Bhadrka
-- Uttam Makwana
-- Aashutosh Verma
-- Raj Ubhadiya
-- Kinjal Makwana
+...
 
 ---
 
@@ -109,8 +96,3 @@ External resources remain property of their credited owners.
 
 ---
 
-## 🌐 Live Demo
-
-> [Visit CyberAware on GitHub Pages](https://cj7-code-journey.github.io/CyberAware/)  
-
----
