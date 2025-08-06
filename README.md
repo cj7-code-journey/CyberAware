@@ -68,13 +68,6 @@
       [images/]
     ```
 
-## **Deployment**
-    - Push your repository to GitHub.
-    - Go to repository Settings → Pages → Set branch to `main` and `/ (root)`.
-    - Your website will be live at `https://your-username.github.io/cyberaware/`
-
----
-
 ## 🤝 Team
 
 ...
